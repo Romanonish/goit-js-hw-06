@@ -9,14 +9,31 @@ const refs = {
   insBoxEl: document.querySelector('#boxes'),
 
 }
-
-function createBoxes() { 
-  document.createElement(`div`);
-refs.insBoxEl.append()
+// const qwantity = refs.formEl.valueAsNumber;
+let arr = [];
+let width = 20;
+let height = 20;
+for (let i = 0; i < 3; i += 1) {   
+  let backgroundColor = getRandomHexColor();
+  let box = { width: width += 10, height: height += 10, backgroundColor };
+  arr.push(box);
+}
+  // refs.insBoxEl.append(boxEl);
+ 
+const createBoxes = function (obj) {
+  let boxEl = document.createElement(`div`);
+  boxEl.style.width = `${obj.width}px`;
+   boxEl.style.height = `${obj.height}px`;
+   boxEl.style.backgroundColor = obj.backgroundColor;
 };
+  console.log(arr);
+const destroyBoxes = function () {
+  refs.insBoxEl.innerHTML = "";
+}
 
-refs.btnCreate.addEventListener('click', createBoxes(refs.formEl.value));
 
-console.log("~ refs.formEl", refs.formEl.value)
-console.log("~ refs.formEl", refs.btnCreate)
-console.log("~ refs.formEl", refs.btnDestroy)
+// refs.btnCreate.addEventListener('click', createBoxes);
+refs.btnDestroy.addEventListener('click', destroyBoxes);
+
+// console.log("~ refs.formEl", refs.btnCreate)
+// console.log("~ refs.formEl", refs.btnDestroy)

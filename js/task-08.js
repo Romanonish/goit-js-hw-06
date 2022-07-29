@@ -11,8 +11,9 @@ function onFormSubmit(e) {
         password: e.currentTarget.elements.password.value,
     };
 
+    if(e.currentTarget.elements.email.value !== '' && e.currentTarget.elements.password.value !== '' ){
     console.log(formData);
-
-    e.currentTarget.reset();
+    e.currentTarget.reset()
+    };
 };
 
