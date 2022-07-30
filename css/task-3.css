@@ -1,0 +1,14 @@
+.gallery__item {
+    display: block;
+    list-style: none;
+    
+}
+
+.gallery__image {
+    display: block;
+    width: 100%;         
+}
+
+.gallery__item:not(:last-child){
+    margin-bottom: 20px;
+}

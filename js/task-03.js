@@ -11,28 +11,37 @@ const images = [
     url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     alt: 'Group of Horses Running',
   },
+  
 ];
 
-const itemsEl = images.map(item => {
-  const { url, alt } = item;
-  const itemEl = document.createElement("li"); 
-  itemEl.insertAdjacentHTML("afterbegin", `<img class = gallery__image src = ${url} alt = ${alt}></img>`); 
+const makeListItems = (image) => {
+  const { url, alt } = image;
+  return `
+  <li class = "gallery__item">
+    <img class = "gallery__image" src=${url} alt=${alt}>
+  </li>
+  `
+};
 
-  itemEl.classList.add("gallery__item");
-  itemEl.style.listStyle = "none";
-  itemEl.style.display = "block";
-  itemEl.style.marginBottom = "20px";
-      
-  return itemEl;
-});
+const makeImagesList = images.map(makeListItems).join('');
+const galeryEl = document.querySelector('.gallery');
+galeryEl.insertAdjacentHTML('beforeend', makeImagesList);
 
-const galeryEl = document.querySelector(".gallery");
-galeryEl.append(...itemsEl);
+console.log(makeImagesList);
 
-const imgEl = document.querySelectorAll(".gallery__image");
-  imgEl.forEach(img => {
-  img.width = 800;
-  img.style.display = "block";  
-})
+// const makeItemStyle = (item) => {
+//   item.style.listStyle = "none";
+//   item.style.display = "block";
+//   item.style.marginBottom = "20px";
+// };
 
-  
+// const makeImageStyle = (image) => {
+//   image.width = 800;
+//   image.style.display = "block";  
+// }
+
+// const itemsEl = document.querySelectorAll('.gallery__item');
+// itemsEl.forEach(makeItemStyle);
+
+// const imagesEl = document.querySelectorAll('.gallery__image');
+// imagesEl.forEach(makeImageStyle);  
