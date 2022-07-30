@@ -27,21 +27,5 @@ const makeImagesList = images.map(makeListItems).join('');
 const galeryEl = document.querySelector('.gallery');
 galeryEl.insertAdjacentHTML('beforeend', makeImagesList);
 
-console.log(makeImagesList);
+console.log(galeryEl);
 
-// const makeItemStyle = (item) => {
-//   item.style.listStyle = "none";
-//   item.style.display = "block";
-//   item.style.marginBottom = "20px";
-// };
-
-// const makeImageStyle = (image) => {
-//   image.width = 800;
-//   image.style.display = "block";  
-// }
-
-// const itemsEl = document.querySelectorAll('.gallery__item');
-// itemsEl.forEach(makeItemStyle);
-
-// const imagesEl = document.querySelectorAll('.gallery__image');
-// imagesEl.forEach(makeImageStyle);  
